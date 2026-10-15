@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.env*.local
+
+# Full-resolution source photos stay local: the repo is public and only the
+# cropped avatar needs to ship. Remove this line if you want them versioned.
+source-photos/
+
+# Personal notes, not part of the site. Kept local.
+RESUME-NOTES.md

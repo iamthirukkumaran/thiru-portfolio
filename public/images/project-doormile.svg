@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Doormile placeholder">
+  <rect width="1600" height="1000" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1600" height="64" fill="#FAFAF8"/>
+  <line x1="0" y1="64" x2="1600" y2="64" stroke="#EAEAE6" stroke-width="2"/>
+  <circle cx="34" cy="32" r="6" fill="#EAEAE6"/><circle cx="56" cy="32" r="6" fill="#EAEAE6"/><circle cx="78" cy="32" r="6" fill="#EAEAE6"/>
+  <rect x="110" y="22" width="300" height="20" rx="10" fill="#EAEAE6"/>
+  <rect x="0" y="66" width="230" height="934" fill="#FAFAF8"/>
+  <line x1="230" y1="66" x2="230" y2="1000" stroke="#EAEAE6" stroke-width="2"/>
+  <g fill="#EAEAE6">
+    <rect x="34" y="110" width="150" height="14" rx="7"/>
+    <rect x="34" y="156" width="120" height="14" rx="7"/>
+    <rect x="34" y="202" width="140" height="14" rx="7"/>
+    <rect x="34" y="248" width="100" height="14" rx="7"/>
+  </g>
+  <g fill="none" stroke="#EAEAE6" stroke-width="2">
+    <rect x="280" y="110" width="290" height="130" rx="10"/>
+    <rect x="600" y="110" width="290" height="130" rx="10"/>
+    <rect x="920" y="110" width="290" height="130" rx="10"/>
+    <rect x="1240" y="110" width="290" height="130" rx="10"/>
+    <rect x="280" y="280" width="1250" height="560" rx="12"/>
+  </g>
+  <path d="M400 700 C560 560, 760 760, 920 600 S1240 420, 1420 500" fill="none" stroke="#2F5D4F" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+  <circle cx="400" cy="700" r="12" fill="#2F5D4F" opacity="0.6"/>
+  <circle cx="1420" cy="500" r="12" fill="#2F5D4F" opacity="0.6"/>
+  <g font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <text x="800.0" y="480.0" font-size="46" font-weight="600" fill="#171717">Doormile</text>
+    <text x="800.0" y="528.0" font-size="24" fill="#9A9A94">Hubs, riders, live tracking</text>
+    <text x="800.0" y="584.0" font-size="18" letter-spacing="3" fill="#9A9A94">REPLACE WITH SCREENSHOT</text>
+  </g>
+</svg>
