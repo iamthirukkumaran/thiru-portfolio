@@ -31,6 +31,8 @@ export type RailItem = {
   role: string;
   /** Optional, e.g. "Current". */
   period?: string;
+  /** Optional product logo in /public/images. */
+  logo?: string;
 };
 
 export type Experience = {
@@ -53,9 +55,14 @@ export const experience: Experience[] = [
     logo: "/images/logo-nearle.png",
     location: "Coimbatore",
     rail: [
-      { name: "KROW", role: "Frontend & mobile", period: "Current" },
-      { name: "Doormile", role: "Frontend & mobile" },
-      { name: "FriendBuy", role: "Full-stack" },
+      {
+        name: "KROW",
+        role: "Frontend & mobile",
+        period: "Current",
+        logo: "/images/krow.png",
+      },
+      { name: "Doormile", role: "Frontend & mobile", logo: "/images/doormile.png" },
+      { name: "FriendBuy", role: "Full-stack", logo: "/images/friendbuy.png" },
     ],
     monogram: "N",
   },
@@ -223,6 +230,7 @@ export const projects: Project[] = [
 export const moreWork = [
   {
     name: "FriendBuy",
+    logo: "/images/friendbuy.png",
     description:
       "Referral, loyalty and rewards workflows, plus the campaign and analytics dashboard UI, on a serverless backend.",
     stack: "React, TypeScript, Grommet, Node.js, AWS Lambda, DynamoDB, S3",

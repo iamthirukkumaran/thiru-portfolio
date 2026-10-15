@@ -1,4 +1,7 @@
+import Image from "next/image";
+
 import { education, experience } from "@/data/content";
+import { asset } from "@/lib/asset";
 import Monogram from "./Monogram";
 
 /**
@@ -34,11 +37,21 @@ export function ExperienceList() {
               <ul>
                 {item.rail.map((product) => (
                   <li key={product.name} className={`${ROW} py-1.5`}>
-                    <span className="relative pl-[48px] text-[14px] text-ink/80">
+                    <span className="relative flex items-center gap-2.5 pl-[42px] text-[14px] text-ink/80">
                       <span
                         aria-hidden="true"
-                        className="absolute left-[13.5px] top-[7px] h-[7px] w-[7px] rounded-full border border-line bg-paper"
+                        className="absolute left-[13.5px] top-[9px] h-[7px] w-[7px] rounded-full border border-line bg-paper"
                       />
+                      {product.logo && (
+                        <Image
+                          src={asset(product.logo)}
+                          alt=""
+                          aria-hidden="true"
+                          width={48}
+                          height={48}
+                          className="h-5 w-5 shrink-0 rounded-[5px] border border-line bg-white object-contain"
+                        />
+                      )}
                       {product.name}
                     </span>
                     <span className={`${INDENT} text-[13px] text-muted`}>{product.role}</span>
