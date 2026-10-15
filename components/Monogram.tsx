@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { asset } from "@/lib/asset";
+
 type Props = {
   letter: string;
   logo?: string;
@@ -11,7 +13,7 @@ export default function Monogram({ letter, logo, name }: Props) {
   if (logo) {
     return (
       <Image
-        src={logo}
+        src={asset(logo)}
         alt={`${name} logo`}
         width={96}
         height={96}

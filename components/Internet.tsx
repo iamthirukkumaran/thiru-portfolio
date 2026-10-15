@@ -1,4 +1,5 @@
 import { internet } from "@/data/content";
+import { asset } from "@/lib/asset";
 
 export default function Internet() {
   const links = internet.filter((link) => link.href);
@@ -12,7 +13,7 @@ export default function Internet() {
         return (
           <li key={link.label}>
             <a
-              href={link.href}
+              href={asset(link.href)}
               {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
               className="group flex items-baseline justify-between gap-4 py-4 transition-colors"
             >

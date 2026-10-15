@@ -1,10 +1,9 @@
 import Image from "next/image";
 import { intro } from "@/data/content";
+import { asset } from "@/lib/asset";
 import { mailto, site } from "@/data/site.config";
 import IntroBrush from "./IntroBrush";
 import Reveal from "./Reveal";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Intro() {
   return (
@@ -14,13 +13,13 @@ export default function Intro() {
           className="intro-paint relative w-full"
           style={
             {
-              "--brush-cursor": `url(${basePath}/images/brush-cursor.png) 3 3, crosshair`,
+              "--brush-cursor": `url(${asset("/images/brush-cursor.png")}) 3 3, crosshair`,
             } as React.CSSProperties
           }
         >
           <IntroBrush />
           <Image
-            src={site.profileImage.src}
+            src={asset(site.profileImage.src)}
             alt={site.profileImage.alt}
             width={280}
             height={280}
@@ -55,7 +54,7 @@ export default function Intro() {
             </a>
           )}
           {site.resumeUrl && (
-            <a href={site.resumeUrl} target="_blank" rel="noreferrer noopener" className="link">
+            <a href={asset(site.resumeUrl)} target="_blank" rel="noreferrer noopener" className="link">
               Resume <span aria-hidden="true">&#8599;</span>
             </a>
           )}

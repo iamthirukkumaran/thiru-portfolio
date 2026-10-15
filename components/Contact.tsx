@@ -1,4 +1,5 @@
 import { contact } from "@/data/content";
+import { asset } from "@/lib/asset";
 import { mailto, site } from "@/data/site.config";
 import Reveal from "./Reveal";
 
@@ -7,7 +8,7 @@ export default function Contact() {
     { label: "Email me", href: mailto },
     { label: "LinkedIn", href: site.links.linkedin },
     { label: "GitHub", href: site.links.github },
-    { label: "Resume", href: site.resumeUrl },
+    { label: "Resume", href: asset(site.resumeUrl) },
   ].filter((link) => link.href);
 
   return (

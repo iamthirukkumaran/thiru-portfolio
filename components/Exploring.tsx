@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { exploring } from "@/data/content";
+import { asset } from "@/lib/asset";
 import Reveal from "./Reveal";
 
 export default function Exploring() {
@@ -13,7 +14,7 @@ export default function Exploring() {
             <Reveal delay={i * 50}>
               <div className="flex gap-4">
                 <Image
-                  src={item.icon}
+                  src={asset(item.icon)}
                   alt=""
                   aria-hidden="true"
                   width={40}

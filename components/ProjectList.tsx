@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { projects, type Project } from "@/data/content";
+import { asset } from "@/lib/asset";
 import Reveal from "./Reveal";
 
 function ProjectRow({ project, priority }: { project: Project; priority: boolean }) {
@@ -9,7 +10,7 @@ function ProjectRow({ project, priority }: { project: Project; priority: boolean
         <figure className="group relative overflow-hidden rounded-xl border border-line bg-white">
           <div className="relative aspect-[16/10] w-full">
             <Image
-              src={project.image}
+              src={asset(project.image)}
               alt={
                 project.imageIsPlaceholder
                   ? `${project.name} placeholder preview`

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { beyond } from "@/data/content";
+import { asset } from "@/lib/asset";
 import Reveal from "./Reveal";
 
 export default function Beyond() {
@@ -25,7 +26,7 @@ export default function Beyond() {
                 className="relative aspect-[4/5] overflow-hidden rounded-lg border border-line bg-white"
               >
                 <Image
-                  src={photo.src}
+                  src={asset(photo.src)}
                   alt={photo.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, 240px"
