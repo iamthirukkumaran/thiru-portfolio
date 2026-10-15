@@ -60,11 +60,12 @@
   mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
 
-/* You are the painter: the pointer becomes a brush over the painting area. */
+/* You are the painter: the pointer becomes a brush over the painting area.
+   The url is injected as --brush-cursor so it respects basePath. */
 .intro-paint,
 .intro-paint img,
 .intro-brush {
-  cursor: url("/images/brush-cursor.png") 3 3, crosshair;
+  cursor: var(--brush-cursor, crosshair);
 }
 
 @media (max-width: 640px) {

@@ -4,11 +4,20 @@ import { mailto, site } from "@/data/site.config";
 import IntroBrush from "./IntroBrush";
 import Reveal from "./Reveal";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export default function Intro() {
   return (
     <section id="about" className="scroll-mt-20 pt-14 sm:pt-20">
       <Reveal>
-        <div className="intro-paint relative w-full">
+        <div
+          className="intro-paint relative w-full"
+          style={
+            {
+              "--brush-cursor": `url(${basePath}/images/brush-cursor.png) 3 3, crosshair`,
+            } as React.CSSProperties
+          }
+        >
           <IntroBrush />
           <Image
             src={site.profileImage.src}
