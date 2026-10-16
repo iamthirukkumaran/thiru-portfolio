@@ -1,89 +1,160 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { projects, type Project } from "@/data/content";
 import { asset } from "@/lib/asset";
 import Reveal from "./Reveal";
+import CaseStudyModal from "./CaseStudyModal";
 
-function ProjectRow({ project, priority }: { project: Project; priority: boolean }) {
+function ProjectMedia({ project }: { project: Project }) {
+  // KROW - Full artwork presentation on matched warm cream background
+  if (project.id === "krow") {
+    return (
+      <div
+        className="relative aspect-[16/10] sm:aspect-[1.75/1] w-full overflow-hidden rounded-xl border border-line/60 flex items-center justify-center p-2 sm:p-3 shadow-2xs transition-shadow duration-300 group-hover:shadow-md"
+        style={{ background: project.gradient || "#FEF8DF" }}
+      >
+        <div className="relative h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]">
+          <Image
+            src={asset(project.image)}
+            alt={project.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 736px"
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Miler App - Transparent rider mockups on fresh light mint background
+  if (project.id === "miler") {
+    return (
+      <div
+        className="relative aspect-[16/10] sm:aspect-[1.75/1] w-full overflow-hidden rounded-xl border border-line/60 flex items-center justify-center p-3 sm:p-5 shadow-2xs transition-shadow duration-300 group-hover:shadow-md"
+        style={{ background: project.gradient || "linear-gradient(135deg, #F0FAF3 0%, #DDF4E5 50%, #F0FAF3 100%)" }}
+      >
+        <div className="relative h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.025] drop-shadow-md">
+          <Image
+            src={asset(project.image)}
+            alt={project.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 736px"
+            className="object-contain"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Ponkali Masalas product showcase on golden turmeric gradient
+  if (project.id === "ponkali") {
+    return (
+      <div
+        className="relative aspect-[16/10] sm:aspect-[1.75/1] w-full overflow-hidden rounded-xl border border-line/60 flex items-center justify-center p-3 sm:p-4 shadow-2xs transition-shadow duration-300 group-hover:shadow-md"
+        style={{ background: project.gradient || "linear-gradient(135deg, #FFF6E5 0%, #FFE8B2 50%, #FFF2D1 100%)" }}
+      >
+        <div className="relative h-[88%] aspect-[3/4] transition-transform duration-500 ease-out group-hover:scale-[1.04] drop-shadow-xl">
+          <Image
+            src={asset(project.image)}
+            alt={project.name}
+            fill
+            sizes="400px"
+            className="object-contain"
+          />
+        </div>
+
+        {/* Live Store badge */}
+        <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-line/60 px-2.5 py-1 text-[10px] font-mono font-medium text-ink shadow-2xs">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          </span>
+          <span>ponkali.in</span>
+        </div>
+      </div>
+    );
+  }
+
+  // Doormile - Full screenshot with no background color needed
+  if (project.id === "doormile") {
+    return (
+      <div className="relative aspect-[16/10] sm:aspect-[1.75/1] w-full overflow-hidden rounded-xl border border-line/60 shadow-2xs transition-shadow duration-300 group-hover:shadow-md bg-transparent">
+        <div className="relative h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]">
+          <Image
+            src={asset(project.image)}
+            alt={project.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 736px"
+            className="object-cover"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop / UI platforms (Scrolla)
   return (
-    <article>
+    <div
+      className="relative aspect-[16/10] sm:aspect-[1.75/1] w-full overflow-hidden rounded-xl border border-line/60 flex items-center justify-center p-3 sm:p-6 shadow-2xs transition-shadow duration-300 group-hover:shadow-md"
+      style={{ background: project.gradient || "#ffffff" }}
+    >
+      <div className="relative w-full h-full rounded-lg sm:rounded-xl overflow-hidden shadow-xl shadow-black/10 border border-black/5 transition-transform duration-500 ease-out group-hover:scale-[1.025]">
+        <Image
+          src={asset(project.image)}
+          alt={project.name}
+          fill
+          sizes="(max-width: 768px) 100vw, 720px"
+          className="object-contain"
+        />
+      </div>
+    </div>
+  );
+}
+
+function ProjectRow({
+  project,
+  onOpenCaseStudy,
+}: {
+  project: Project;
+  onOpenCaseStudy: () => void;
+}) {
+  return (
+    <article
+      onClick={onOpenCaseStudy}
+      tabIndex={0}
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpenCaseStudy();
+        }
+      }}
+      className="group flex flex-col gap-3 p-2 sm:p-3 -mx-2 sm:-mx-3 rounded-2xl cursor-pointer transition-colors duration-200 hover:bg-black/[0.035] outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+    >
       <Reveal>
-        <figure className="group relative overflow-hidden rounded-xl border border-line bg-white">
-          <div className="relative aspect-[16/10] w-full">
-            <Image
-              src={asset(project.image)}
-              alt={
-                project.imageIsPlaceholder
-                  ? `${project.name} placeholder preview`
-                  : `${project.name} screenshot`
-              }
-              fill
-              sizes="(max-width: 768px) 100vw, 736px"
-              priority={priority}
-              className="object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.015]"
-            />
-          </div>
-          {project.imageIsPlaceholder && (
-            <figcaption className="absolute bottom-2 right-2 rounded-full bg-paper/90 px-2.5 py-1 text-[10px] uppercase tracking-label text-muted">
-              Placeholder
-            </figcaption>
-          )}
-        </figure>
+        {/* Charmie Kapoor style end-to-end-card-media */}
+        <ProjectMedia project={project} />
 
-        <div className="mt-5">
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h3 className="text-[17px] font-medium tracking-[-0.01em]">{project.name}</h3>
-            <span className="label">{project.category}</span>
+        {/* Charmie Kapoor style end-to-end-title & subtitle: Short and Sweet */}
+        <div className="mt-3 flex flex-col gap-0.5 px-0.5">
+          <div className="flex items-baseline justify-between gap-4">
+            <h3 className="text-[15px] sm:text-[16px] font-medium tracking-tight text-ink group-hover:text-accent transition-colors">
+              {project.shortTitle || project.name}
+            </h3>
+            <span
+              aria-hidden="true"
+              className="text-[13px] text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-accent"
+            >
+              →
+            </span>
           </div>
 
-          <p className="mt-3 max-w-column text-[15px] leading-[1.7] text-ink/80">
-            {project.description}
+          <p className="text-[13px] sm:text-[14px] text-muted leading-relaxed">
+            {project.shortSubtitle || project.description}
           </p>
-
-          {project.highlights && project.highlights.length > 0 && (
-            <ul className="mt-4 space-y-2">
-              {project.highlights.map((highlight) => (
-                <li
-                  key={highlight.slice(0, 32)}
-                  className="flex gap-3 text-[14px] leading-[1.65] text-ink/75"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="mt-[9px] h-[3px] w-[3px] shrink-0 rounded-full bg-line"
-                  />
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <dl className="mt-5 space-y-1.5 text-[13px]">
-            <div className="flex gap-3">
-              <dt className="w-[76px] shrink-0 text-muted">Role</dt>
-              <dd className="text-ink/75">{project.role}</dd>
-            </div>
-            <div className="flex gap-3">
-              <dt className="w-[76px] shrink-0 text-muted">Built with</dt>
-              <dd className="text-ink/75">{project.stack}</dd>
-            </div>
-            <div className="flex gap-3">
-              <dt className="w-[76px] shrink-0 text-muted">Status</dt>
-              <dd className="text-ink/75">{project.status}</dd>
-            </div>
-          </dl>
-
-          {project.href && (
-            <p className="mt-4">
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="link text-[14px]"
-              >
-                {project.linkLabel ?? "View project"}{" "}
-                <span aria-hidden="true">&#8599;</span>
-              </a>
-            </p>
-          )}
         </div>
       </Reveal>
     </article>
@@ -91,11 +162,36 @@ function ProjectRow({ project, priority }: { project: Project; priority: boolean
 }
 
 export default function ProjectList() {
+  const [activeProjectIndex, setActiveProjectIndex] = useState<number | null>(null);
+
+  const activeProject =
+    activeProjectIndex !== null ? projects[activeProjectIndex] : null;
+
+  const handleNextProject = () => {
+    if (activeProjectIndex !== null) {
+      setActiveProjectIndex((activeProjectIndex + 1) % projects.length);
+    }
+  };
+
   return (
-    <div className="space-y-16 sm:space-y-20">
-      {projects.map((project, i) => (
-        <ProjectRow key={project.name} project={project} priority={i === 0} />
-      ))}
-    </div>
+    <>
+      <div className="space-y-10 sm:space-y-12">
+        {projects.map((project, i) => (
+          <ProjectRow
+            key={project.name}
+            project={project}
+            onOpenCaseStudy={() => setActiveProjectIndex(i)}
+          />
+        ))}
+      </div>
+
+      {activeProject && (
+        <CaseStudyModal
+          project={activeProject}
+          onClose={() => setActiveProjectIndex(null)}
+          onNext={handleNextProject}
+        />
+      )}
+    </>
   );
 }

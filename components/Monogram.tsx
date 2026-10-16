@@ -17,7 +17,7 @@ export default function Monogram({ letter, logo, name }: Props) {
         alt={`${name} logo`}
         width={96}
         height={96}
-        className="h-9 w-9 shrink-0 rounded-[8px] border border-line bg-white object-contain p-[3px]"
+        className="h-10 w-10 shrink-0 rounded-[9px] border border-line bg-white object-contain p-[3px]"
       />
     );
   }
@@ -25,7 +25,7 @@ export default function Monogram({ letter, logo, name }: Props) {
   return (
     <span
       aria-hidden="true"
-      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-line bg-white text-[13px] font-medium text-muted"
+      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[9px] border border-line bg-white text-[14px] font-medium text-muted"
     >
       {letter}
     </span>

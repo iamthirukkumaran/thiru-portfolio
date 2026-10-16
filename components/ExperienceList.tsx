@@ -43,14 +43,16 @@ export function ExperienceList() {
                         className="absolute left-[13.5px] top-[9px] h-[7px] w-[7px] rounded-full border border-line bg-paper"
                       />
                       {product.logo && (
-                        <Image
-                          src={asset(product.logo)}
-                          alt=""
-                          aria-hidden="true"
-                          width={48}
-                          height={48}
-                          className="h-5 w-5 shrink-0 rounded-[5px] border border-line bg-white object-contain"
-                        />
+                        <span className="flex h-7 w-9 shrink-0 items-center justify-center overflow-hidden rounded-[6px] border border-line bg-white">
+                          <Image
+                            src={asset(product.logo)}
+                            alt=""
+                            aria-hidden="true"
+                            width={80}
+                            height={80}
+                            className="max-h-full max-w-full object-contain"
+                          />
+                        </span>
                       )}
                       {product.name}
                     </span>

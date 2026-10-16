@@ -117,116 +117,151 @@ export type Project = {
   highlights?: string[];
   role: string;
   stack: string;
-  image: string;
   /** Leave "" to hide the link entirely. */
   href: string;
   linkLabel?: string;
   /** Marks the preview as a placeholder frame rather than a real screenshot. */
   imageIsPlaceholder: boolean;
+  /** Optional interactive live website embed URL. */
+  embedUrl?: string;
+  /** Unique slug identifier for Charmie-style case study modals. */
+  id: string;
+  /** Charmie Kapoor style short card title (e.g. "Workforce staffing, KROW"). */
+  shortTitle: string;
+  /** Charmie Kapoor style short and sweet single-line card subtitle. */
+  shortSubtitle: string;
+  /** Primary preview image. */
+  image: string;
+  /** Array of images for multi-screen showcase (e.g. mobile dual screens). */
+  images?: string[];
+  /** Charmie Kapoor style GOAL statement. */
+  goal?: string;
+  /** Bespoke background gradient like Charmie's end-to-end-card-media. */
+  gradient?: string;
 };
 
 export const projects: Project[] = [
   {
+    id: "krow",
     name: "KROW",
+    shortTitle: "Workforce staffing platform, KROW",
+    shortSubtitle: "Client shift bookings, worker rosters, and automated NFC attendance.",
     category: "Workforce staffing platform",
     status: "In production at Nearle Technologies",
     description:
       "A workforce staffing platform: clients book shifts, vendors supply workers, and workers clock in by NFC or geofence and get paid. Two Flutter apps, a React dashboard, a Node and PostgreSQL backend.",
+    goal: "A unified workforce staffing and shift attendance platform with automated geofencing, NFC clock-ins, and client management.",
+    role: "Frontend and mobile development across Flutter apps and React dashboard",
+    stack: "Flutter, React, Node.js, PostgreSQL, Google Cloud, Appium, WebdriverIO",
+    image: "/images/krowwork.png",
+    images: ["/images/krowwork.png"],
+    href: "",
+    imageIsPlaceholder: false,
+    gradient: "linear-gradient(135deg, #FFFDF5 0%, #FEF8DF 50%, #FFFDF5 100%)",
     highlights: [
       "Features across both Flutter apps and the React dashboard.",
       "End-to-end smoke test suite in Appium and WebdriverIO: 20 automated cases covering onboarding, shift assignment, clock-in and booking.",
       "Production defect fixes found in real user sessions.",
     ],
-    role: "Frontend and mobile development",
-    stack: "Flutter, React, Node.js, PostgreSQL, Google Cloud, Appium, WebdriverIO",
-    image: "/images/project-krow.svg",
-    href: "",
-    imageIsPlaceholder: true,
   },
   {
+    id: "doormile",
     name: "Doormile",
+    shortTitle: "Logistics operations, Doormile",
+    shortSubtitle: "Real-time dispatch and multi-stop tracking across first, mid and last mile.",
     category: "Logistics operations platform",
     status: "In production at Nearle Technologies",
     description:
       "The operations platform behind a multi-stop delivery network: hubs, riders and parcels across first, mid and last mile, with live tracking on the map.",
+    goal: "The operations nerve center behind a multi-stop delivery network with live map tracking, rider assignment, and COD reconciliation.",
+    role: "Frontend and mobile development; led a redesign of the admin dashboard UI",
+    stack: "React, Material UI, Node.js, REST APIs, Redis GEO, live location APIs",
+    image: "/images/doormile-1.png",
+    images: ["/images/doormile-1.png"],
+    href: "", // internal product — no public link
+    imageIsPlaceholder: false,
+    gradient: "transparent",
     highlights: [
       "Hub, rider and parcel management with order to rider assignment.",
       "Live tracking: map visualisation, animated routes, Redis GEO location handling.",
       "Rider KPI, delivery and COD dashboards, and a redesign of the admin UI.",
     ],
-    role: "Frontend and mobile development; led a redesign of the admin dashboard UI",
-    stack: "React, Material UI, Node.js, REST APIs, Redis GEO, live location APIs",
-    image: "/images/project-doormile.svg",
-    href: "", // internal product — no public link
-    imageIsPlaceholder: true,
   },
   {
+    id: "miler",
     name: "Miler App",
+    shortTitle: "Rider companion, Miler App",
+    shortSubtitle: "Route navigation, multi-stop pickup, and swipe confirmation in Flutter.",
     category: "Rider mobile app",
     status: "In production at Nearle Technologies",
     description:
       "The rider app that goes with Doormile, built end to end in Flutter. Riders accept orders, follow an optimised multi-stop route, and swipe to confirm each pickup and drop.",
+    goal: "A high-performance rider companion app built in Flutter for optimized route navigation, offline sync, and swipe confirmation.",
+    role: "Built the app end to end",
+    stack: "Flutter, Dart, GetX, REST APIs, local storage, ADB device debugging",
+    image: "/images/miler.png",
+    images: ["/images/miler.png"],
+    href: "",
+    imageIsPlaceholder: false,
+    gradient: "linear-gradient(135deg, #F0FAF3 0%, #DDF4E5 50%, #F0FAF3 100%)",
     highlights: [
       "Multi-order management grouped by pickup location, with an optimised route across stops.",
       "Live map with GPS tracking and swipe-to-arrived confirmation.",
       "Offline, loading and error states, debugged on real devices over ADB.",
     ],
-    role: "Built the app end to end",
-    stack: "Flutter, Dart, GetX, REST APIs, local storage, ADB device debugging",
-    image: "/images/project-miler.svg",
-    href: "",
-    imageIsPlaceholder: true,
   },
   {
+    id: "scrolla",
     name: "Scrolla",
+    shortTitle: "AI kinetic typography, Scrolla",
+    shortSubtitle: "Script-to-video AI animation pipeline timing typography to audio beats.",
     category: "AI video ad generator",
     status: "Building it independently",
     description:
       "An AI kinetic typography video ad generator I'm building on my own, from the product and UI down to the generation pipeline.",
+    goal: "An automated kinetic typography video ad generation pipeline timing typography to audio beats using LLMs and Remotion.",
+    role: "Product, architecture and AI pipeline design, end to end",
+    stack: "Next.js, TypeScript, Remotion, Groq API, LLM pipelines",
+    image: "/images/scrolla.png",
+    images: ["/images/scrolla.png"],
+    href: site.links.scrolla,
+    linkLabel: "scrolla.in",
+    imageIsPlaceholder: false,
+    gradient: "linear-gradient(135deg, #F5EEFD 0%, #E8D5F9 50%, #F3EAFE 100%)",
     highlights: [
       "Three-stage AI pipeline that turns a script into a finished animated ad.",
       "Beat-sync engine that times typography to the audio.",
       "Remotion system with twenty animation types, driven by AI-generated JSON.",
     ],
-    role: "Product, architecture and AI pipeline design, end to end",
-    stack: "Next.js, TypeScript, Remotion, Groq API, LLM pipelines",
-    image: "/images/project-scrolla.svg",
-    href: site.links.scrolla,
-    linkLabel: "scrolla.in",
-    imageIsPlaceholder: true,
   },
   {
-    name: "AI Trip Planner",
-    category: "AI product interface",
-    status: "Client work at Fuzionest",
-    description:
-      "An AI trip planner for RSL, a Dubai-based client. I built the conversational flows and the client-facing interface.",
-    highlights: [
-      "Conversational planning flows built on LLM integration.",
-      "Pixel-perfect client-facing UI, delivered to a live client.",
-    ],
-    role: "Conversational flows and frontend UI",
-    stack: "Next.js, LLM integration, RAG",
-    image: "/images/project-trip-planner.svg",
-    href: "",
-    imageIsPlaceholder: true,
-  },
-  {
+    id: "ponkali",
     name: "Ponkali Masalas",
+    shortTitle: "Direct-to-consumer storefront, Ponkali Masalas",
+    shortSubtitle: "Three generations of turmeric farming from Erode, carried into a live storefront.",
     category: "E-commerce · family business",
     status: "Live",
     description:
       "A premium spices brand rooted in our family's turmeric farming in Erode, carried into a modern direct-to-consumer storefront.",
-    role: "Brand identity, storefront experience and product presentation",
+    goal: "Bring three generations of family turmeric farming in Erode direct to kitchens across India through a modern, trustworthy digital storefront.",
+    role: "Brand identity, storefront experience, e-commerce engineering, product presentation",
     stack: "E-commerce storefront, product presentation, web",
-    image: "/images/project-ponkali.svg",
+    image: "/images/ponkali.png",
+    images: ["/images/ponkali.png"],
     href: site.links.ponkali,
     linkLabel: "ponkali.in",
-    imageIsPlaceholder: true, // TODO: drop in a real screenshot of ponkali.in, then set false
+    imageIsPlaceholder: false,
+    embedUrl: site.links.ponkali,
+    gradient: "linear-gradient(135deg, #FFF6E5 0%, #FFE8B2 50%, #FFF2D1 100%)",
+    highlights: [
+      "Direct-to-consumer storefront presenting GI-tagged Erode turmeric.",
+      "Custom price calculator, weight selector (100g to 1kg), and instant WhatsApp direct ordering.",
+      "Clear storytelling around farming heritage, curcumin content (2.5%-3.5%), and lab certifications.",
+    ],
   },
 ];
 
-/** Smaller pieces of work, shown as compact rows under Selected work. */
+/** Smaller pieces of work, shown as compact rows under Recent Work. */
 export const moreWork = [
   {
     name: "FriendBuy",
@@ -296,11 +331,11 @@ export const beyond = {
     "Discovering new places and environments",
     "Building side projects and testing ideas",
   ],
-  /** Optional editorial photo grid. Empty the array to remove the grid entirely. */
+  /** Editorial photo grid. */
   photos: [
-    { src: "/images/beyond-1.svg", alt: "Placeholder image to replace with your own photo", caption: "" },
-    { src: "/images/beyond-2.svg", alt: "Placeholder image to replace with your own photo", caption: "" },
-    { src: "/images/beyond-3.svg", alt: "Placeholder image to replace with your own photo", caption: "" },
+    { src: "/images/me1.JPG", alt: "Thirukkumaran", caption: "" },
+    { src: "/images/me2.JPG", alt: "Thirukkumaran", caption: "" },
+    { src: "/images/me3.png", alt: "Thirukkumaran", caption: "" },
   ],
 };
 

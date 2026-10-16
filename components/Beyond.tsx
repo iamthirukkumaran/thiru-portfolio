@@ -23,21 +23,18 @@ export default function Beyond() {
             {beyond.photos.map((photo) => (
               <figure
                 key={photo.src}
-                className="relative aspect-[4/5] overflow-hidden rounded-lg border border-line bg-white"
+                className="group relative aspect-[4/5] overflow-hidden rounded-xl border border-line bg-white shadow-2xs transition-all duration-300 hover:shadow-md"
               >
                 <Image
                   src={asset(photo.src)}
                   alt={photo.alt}
                   fill
                   sizes="(max-width: 640px) 50vw, 240px"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </figure>
             ))}
           </div>
-          <p className="mt-3 text-[12px] text-muted">
-            Placeholder images, to be replaced with my own photos.
-          </p>
         </Reveal>
       )}
     </div>

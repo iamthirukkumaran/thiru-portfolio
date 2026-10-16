@@ -37,7 +37,7 @@ export default function Page() {
             <EducationList />
           </Section>
 
-          <Section id="work" label="Selected work">
+          <Section id="work" label="Recent Work">
             <ProjectList />
             <MoreWork />
           </Section>

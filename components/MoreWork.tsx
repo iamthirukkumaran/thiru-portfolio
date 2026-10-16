@@ -18,14 +18,16 @@ export default function MoreWork() {
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h4 className="flex items-center gap-2.5 text-[15px] font-medium">
                   {"logo" in item && item.logo && (
-                    <Image
-                      src={asset(item.logo as string)}
-                      alt=""
-                      aria-hidden="true"
-                      width={48}
-                      height={48}
-                      className="h-5 w-5 shrink-0 rounded-[5px] border border-line bg-white object-contain"
-                    />
+                    <span className="flex h-7 w-9 shrink-0 items-center justify-center overflow-hidden rounded-[6px] border border-line bg-white">
+                      <Image
+                        src={asset(item.logo as string)}
+                        alt=""
+                        aria-hidden="true"
+                        width={80}
+                        height={80}
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </span>
                   )}
                   {item.name}
                 </h4>
