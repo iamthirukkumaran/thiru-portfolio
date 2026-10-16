@@ -30,6 +30,7 @@ export const site = {
     github: "https://github.com/iamthirukkumaran",
     linkedin: "https://www.linkedin.com/in/thirukkumaran-r-5752b71b4/",
     twitter: "", // optional — hidden while empty
+    writing: "", // optional — hidden while empty (e.g. Substack or Medium)
     scrolla: "https://scrolla.in",
     ponkali: "https://ponkali.in/",
   },

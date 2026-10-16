@@ -17,6 +17,19 @@ export const metadata: Metadata = {
   title,
   description,
   ...(site.url ? { metadataBase: new URL(site.url) } : {}),
+  icons: {
+    icon: [
+      { url: "/favicon/32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/favicon/16.png?v=2", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/48.png?v=2", sizes: "48x48", type: "image/png" },
+      { url: "/favicon/64.png?v=2", sizes: "64x64", type: "image/png" },
+      { url: "/favicon/192.png?v=2", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon/180.png?v=2", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon/32.png?v=2",
+  },
   openGraph: {
     title,
     description,
@@ -29,6 +42,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/32.png?v=2" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/16.png?v=2" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon/48.png?v=2" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/favicon/64.png?v=2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon/192.png?v=2" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/180.png?v=2" />
+      </head>
       <body>{children}</body>
     </html>
   );
