@@ -13,7 +13,7 @@ export const site = {
   shortName: "Thiru",
   role: "Full-Stack Developer",
   location: "Coimbatore, Tamil Nadu, India",
-  url: "", // TODO: your deployed domain once live, e.g. "https://thirukkumaran.com" (metadata only)
+  url: "https://iamthirukkumaran.github.io/thiru-portfolio",
 
   email: "kumaranthiru478@gmail.com",
 
