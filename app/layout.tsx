@@ -44,6 +44,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-V7NH8X4JLN"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NH8X4JLN');`,
+          }}
+        />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/32.png?v=2" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/16.png?v=2" />
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon/48.png?v=2" />
@@ -53,7 +63,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
-        {site.googleAnalyticsId && <GoogleAnalytics gaId={site.googleAnalyticsId} />}
       </body>
     </html>
   );
