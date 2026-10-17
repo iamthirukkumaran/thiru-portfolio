@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { site } from "@/data/site.config";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -52,8 +52,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/180.png?v=2" />
       </head>
       <body>
-        <GoogleAnalytics />
         {children}
+        {site.googleAnalyticsId && <GoogleAnalytics gaId={site.googleAnalyticsId} />}
       </body>
     </html>
   );
