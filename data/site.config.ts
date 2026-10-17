@@ -19,9 +19,9 @@ export const site = {
 
   /**
    * Google Analytics 4 Measurement ID (e.g. "G-XXXXXXXXXX").
-   * Can also be set via the NEXT_PUBLIC_GA_ID environment variable.
+   * Can also be overridden via the NEXT_PUBLIC_GA_ID environment variable.
    */
-  googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID || "",
+  googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID || "G-V7NH8X4JLN",
 
   /** Public phone number. Left empty on purpose: set it only if you want it on a public page. */
   phone: "", // on your resume as +91 99440 33696

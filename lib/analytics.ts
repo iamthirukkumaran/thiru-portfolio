@@ -6,7 +6,10 @@ declare global {
   }
 }
 
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+import { site } from "@/data/site.config";
+
+export const GA_TRACKING_ID =
+  process.env.NEXT_PUBLIC_GA_ID || site.googleAnalyticsId || "G-V7NH8X4JLN";
 
 /**
  * Log a pageview to Google Analytics 4
