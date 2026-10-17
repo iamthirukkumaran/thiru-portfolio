@@ -5,6 +5,7 @@ import type { Project } from "@/data/content";
 import LiveProjectFrame from "./LiveProjectFrame";
 import Image from "next/image";
 import { asset } from "@/lib/asset";
+import { trackCaseStudyView } from "@/lib/analytics";
 
 interface CaseStudyModalProps {
   project: Project;
@@ -13,6 +14,11 @@ interface CaseStudyModalProps {
 }
 
 export default function CaseStudyModal({ project, onClose, onNext }: CaseStudyModalProps) {
+  // Track project case study view in Google Analytics
+  useEffect(() => {
+    trackCaseStudyView(project.id, project.name);
+  }, [project.id, project.name]);
+
   // Close on Escape, arrow navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
